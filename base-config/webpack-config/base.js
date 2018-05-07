@@ -31,12 +31,12 @@ let config = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: path.join(__dirname, './public/index.html')
+            template: path.join(__dirname, '../public/index.html')
         }),
     ],
     resolve: {
         modules: [
-            /node_modules/,
+            "node_modules",
             path.resolve(__dirname, "../src")
         ],
         extensions: [".js", ".jsx"],

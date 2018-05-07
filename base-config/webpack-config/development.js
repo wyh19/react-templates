@@ -3,22 +3,23 @@
  */
 const webpack = require('webpack')
 const path = require('path')
-let config = require('./base')
+let config = require('./base.js')
 
 config.mode = 'development'
 config.devServer = {
-    host:'0.0.0.0',
-        port:'8888',
-        contentBase:path.join(__dirname, './dist'),
-        hot:true,
-        overlay:{
-        errors:true
-    }
+    host: 'localhost',
+    port: '8888',
+    contentBase: path.join(__dirname, '../dist'),
+    hot: true,
+    overlay: {
+        errors: true
+    },
+    open:true
 }
 config.entry = {
-    app:[
+    app: [
         'react-hot-loader/patch',
-        path.join(__dirname, './src/index.js')
+        path.join(__dirname, '../src/index.js')
     ]
 }
 config.plugins.push(new webpack.HotModuleReplacementPlugin())
