@@ -1,0 +1,14 @@
+{
+  "name": "server-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear":"rimraf dist",
+    "build-client":"webpack --config webpack-config/webpack.config.client.js",
+    "build-server":"webpack --config webpack-config/webpack.config.client.js",
+    "build":"npm run clear && npm run build-client && npm run build-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
