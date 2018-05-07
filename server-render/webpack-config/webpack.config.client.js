@@ -39,7 +39,7 @@ let config ={
     ],
     resolve:{
         modules:[
-            /node_modules/,
+            'node_modules',
             path.join(__dirname,'../src')
         ],
         extensions:['.js','.jsx']
