@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack-config"
+    "start": "webpack-dev-server --config webpack-config/development.js",
+    "build":"webpack --config webpack-config/production.js",
+    "server":"nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
