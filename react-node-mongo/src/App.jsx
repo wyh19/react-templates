@@ -2,12 +2,33 @@
  * Created by 30113 on 2018/5/5.
  */
 import React from 'react'
-import './app.css'
+import {Provider} from 'react-redux'
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-class App extends React.Component{
-    render(){
+import reducers from './reducer'
+import './app.css'
+import {Login} from './pages/login'
+import {Register} from './pages/register'
+
+const store = createStore(reducers, compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+))
+
+class App extends React.Component {
+    render() {
         return (
-            <h4>test</h4>
+            (<Provider store={store}>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/register" component={Register}/>
+                        <Route component={Login}/>
+                    </Switch>
+                </BrowserRouter>
+            </Provider>)
         )
     }
 }
