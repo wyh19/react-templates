@@ -3,12 +3,11 @@
  */
 import React from 'react'
 import './app.css'
-import Test from './components/test/Test'
 
 class App extends React.Component{
     render(){
         return (
-            <Test/>
+            <h4>test</h4>
         )
     }
 }
