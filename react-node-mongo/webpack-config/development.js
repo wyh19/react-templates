@@ -14,7 +14,8 @@ config.devServer = {
     overlay: {
         errors: true
     },
-    open:true
+    open:true,
+    historyApiFallback:true
 }
 config.entry = {
     app: [

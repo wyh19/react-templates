@@ -7,8 +7,8 @@ class Login extends React.Component{
     render(){
 
         return(
-            <div>
-                login1111
+            <div >
+                login
             </div>
         )
     }

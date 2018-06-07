@@ -54,7 +54,8 @@ let config ={
         overlay: {
             errors: true
         },
-        open:true
+        open:true,
+        historyApiFallback:true
     }
 }
 
