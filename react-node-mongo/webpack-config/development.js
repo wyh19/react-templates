@@ -17,6 +17,7 @@ config.devServer = {
     open:true,
     historyApiFallback:true
 }
+config.devtool = 'cheap-module-source-map'
 config.entry = {
     app: [
         'react-hot-loader/patch',
