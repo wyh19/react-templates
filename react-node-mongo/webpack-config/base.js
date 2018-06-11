@@ -19,7 +19,7 @@ let config = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: [['env'], 'react'],
+                    presets: [['env'], "stage-0",'react'],
                     plugins: [
                         'react-hot-loader/babel',
                         'transform-decorators-legacy'
