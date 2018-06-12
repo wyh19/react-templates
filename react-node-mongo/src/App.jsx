@@ -16,15 +16,14 @@ const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
-
 class App extends React.Component {
     render() {
         return (
             (<Provider store={store}>
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/login" component={Login} exact />
-                        <Route path="/register" component={Register} exact />
+                        <Route path="/login" component={Login}/>
+                        <Route path="/register" component={Register}/>
                         <Route component={Login}/>
                     </Switch>
                 </BrowserRouter>
