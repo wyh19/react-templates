@@ -9,7 +9,6 @@ const models = {
     user: {
         user: {type: String, require: true},
         pwd:  {type: String, require: true},
-        type: {type: String, require: true},
         avatar: {type: String},
         desc: {type: String},
     },

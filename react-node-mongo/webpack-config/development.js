@@ -15,7 +15,13 @@ config.devServer = {
         errors: true
     },
     open:true,
-    historyApiFallback:true
+    historyApiFallback:true,
+    proxy:{
+        "/api":{
+            target: "http://localhost:9093",
+            pathRewrite: {"^/api" : ""}
+        }
+    }
 }
 config.devtool = 'cheap-module-source-map'
 config.entry = {
