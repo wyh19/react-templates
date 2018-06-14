@@ -19,7 +19,7 @@ const initState = {
 export function user(state = initState, action) {
     switch (action.type) {
         case AUTH_SUCCESS:
-            return {...state,isAuth:true,user:action.payload.user,msg:'登陆成功'}
+            return {...state,isAuth:true,user:action.payload.user,msg:'',redirectTo:'/home'}
         case ERROR_MSG:
             return {...state,msg:action.msg}
         default:
@@ -44,6 +44,22 @@ export function register({user, pwd, repwd}) {
     }
     return dispatch => {
         axios.post('/api/user/register', {user, pwd})
+            .then(res => {
+                if (res.status === 200 && res.data.code === 0) {
+                    dispatch(authSuccess({user, pwd}))
+                } else {
+                    dispatch(errorMsg(res.data.msg))
+                }
+            })
+    }
+}
+
+export function login({user,pwd}){
+    if (!user || !pwd ) {
+        return errorMsg('用户名密码必须输入')
+    }
+    return dispatch => {
+        axios.post('/api/user/login', {user, pwd})
             .then(res => {
                 if (res.status === 200 && res.data.code === 0) {
                     dispatch(authSuccess({user, pwd}))

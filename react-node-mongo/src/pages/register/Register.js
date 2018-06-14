@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
+import {Redirect}from 'react-router-dom'
 import {register} from '../../redux/user.redux'
 
 import valueControl from '../../components/value-control/value-control'
@@ -30,6 +31,7 @@ class Register extends React.Component {
     render() {
         return (
             <div>
+                {this.props.redirectTo?<Redirect to={this.props.redirectTo}/>:null}
                 {this.props.msg?<h2>{this.props.msg}</h2>:null}
                 <h2>注册页</h2>
                 <div>
