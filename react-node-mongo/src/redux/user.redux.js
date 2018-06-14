@@ -22,6 +22,8 @@ export function user(state = initState, action) {
             return {...state,isAuth:true,user:action.payload.user,msg:'',redirectTo:'/home'}
         case ERROR_MSG:
             return {...state,msg:action.msg}
+        case LOAD_DATA:
+            return {...state, ...action.payload, isAuth: true}
         default:
             return state
     }
@@ -33,6 +35,10 @@ function authSuccess(obj) {
 
 function errorMsg(msg) {
     return {msg, type: ERROR_MSG,}
+}
+
+export function loadData(userinfo) {
+    return {type: LOAD_DATA, payload: userinfo}
 }
 
 export function register({user, pwd, repwd}) {
