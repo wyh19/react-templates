@@ -11,6 +11,7 @@ import reducers from './reducer'
 import './app.css'
 import {Login} from './pages/login'
 import {Register} from './pages/register'
+import {Home} from './pages/home'
 
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
@@ -24,6 +25,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
+                        <Route path="/home" component={Home} />
                         <Route component={Login}/>
                     </Switch>
                 </BrowserRouter>
