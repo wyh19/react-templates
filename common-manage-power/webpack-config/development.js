@@ -1,5 +1,5 @@
 /**
- * Created by 30113 on 2018/5/5.
+ * Created by 30113 on 2018/6/5.
  */
 const webpack = require('webpack')
 const path = require('path')
@@ -15,8 +15,15 @@ config.devServer = {
         errors: true
     },
     open:true,
-    historyApiFallback:true
+    historyApiFallback:true,
+    proxy:{
+        "/api":{
+            target: "http://localhost:9093",
+            pathRewrite: {"^/api" : ""}
+        }
+    }
 }
+config.devtool = 'cheap-module-source-map'
 config.entry = {
     app: [
         'react-hot-loader/patch',

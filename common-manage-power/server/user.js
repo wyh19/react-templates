@@ -9,13 +9,9 @@ const User = models.getModel('user')
 const _filter = {pwd: 0, __v: 0}
 
 Router.get('/list', function (req, res) {
-    //注释代码用于演示jsonp
     const {type} = req.query
-    //const {callback} = req.query
     User.find({type},_filter, function (err, doc) {
         return res.json({code:0,data:doc})
-        // const result = JSON.stringify({code:0,data:doc})
-        // return res.end(callback+ "("+result+")")
     })
 })
 

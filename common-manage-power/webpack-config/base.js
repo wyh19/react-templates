@@ -1,26 +1,29 @@
 /**
- * Created by 30113 on 2018/5/5.
+ * Created by 30113 on 2018/6/5.
  */
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const path = require("path")
+const HTMLWebpackPlugin = require("html-webpack-plugin")
 
 let config = {
-    entry: {
-        app: path.join(__dirname, '../src/index.js'),
+    entry:{
+        app:path.join(__dirname,'../src/index.js')
     },
-    output: {
-        path: path.join(__dirname, '../dist'),
-        filename: '[name].[hash].js',
+    output:{
+        path:path.join(__dirname,'../dist'),
+        filename:'[name].[hash].js'
     },
-    module: {
-        rules: [
+    module:{
+        rules:[
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: [['env'],  "stage-0",'react'],
-                    plugins: ['react-hot-loader/babel','transform-decorators-legacy']
+                    presets: [['env'], "stage-0",'react'],
+                    plugins: [
+                        'react-hot-loader/babel',
+                        'transform-decorators-legacy'
+                    ]
                 }
             },
             {
