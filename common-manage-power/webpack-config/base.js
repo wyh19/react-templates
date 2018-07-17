@@ -22,7 +22,14 @@ let config = {
                     presets: [['env'], "stage-0",'react'],
                     plugins: [
                         'react-hot-loader/babel',
-                        'transform-decorators-legacy'
+                        'transform-decorators-legacy',
+                        [
+                            "import",
+                            {
+                              "libraryName": "antd",
+                              "style": "css"
+                            }
+                          ]
                     ]
                 }
             },
