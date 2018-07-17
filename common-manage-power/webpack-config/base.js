@@ -2,7 +2,7 @@
  * Created by 30113 on 2018/5/5.
  */
 const path = require('path')
-const HTMLWebpackPlugin = require('C:/Users/30113.GOLDWIND/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/html-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 let config = {
     entry: {

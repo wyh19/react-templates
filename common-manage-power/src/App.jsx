@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import reducers from './reducer'
-import './app.css'
+import './app.scss'
 import {Login} from './pages/login'
 import {Register} from './pages/register'
 import {Home} from './pages/home'
