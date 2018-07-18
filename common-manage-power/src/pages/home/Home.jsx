@@ -3,7 +3,9 @@
  */
 import React from 'react'
 import {Layout, Icon} from 'antd';
-import MenuBar from './menubar'
+import MenuBar from './MenuBar'
+import OpenedMenuBar from './OpenedMenuBar'
+
 import './Home.scss'
 
 const {Header, Sider, Content} = Layout;
@@ -40,6 +42,7 @@ class Home extends React.Component {
                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                             onClick={this.toggle}
                         />
+                        <OpenedMenuBar />
                     </Header>
                     <Content style={{padding: 24, background: '#fff', minHeight: 280}}>
                         {this.props.children}

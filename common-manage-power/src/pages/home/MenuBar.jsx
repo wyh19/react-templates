@@ -5,7 +5,7 @@ import React from 'react'
 import {Menu, Icon} from 'antd';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import { getMenuList} from '../../redux/menu.redux'
+import { getMenuList,openMenu} from '../../redux/menu.redux'
 
 const SubMenu = Menu.SubMenu
 const MenuItem = Menu.Item
@@ -13,14 +13,14 @@ const MenuItem = Menu.Item
 @withRouter
 @connect(
     state=>state.menu,
-    {getMenuList}
+    {getMenuList,openMenu}
 )
 class MenuBar extends React.Component {
     componentDidMount(){
         this.props.getMenuList()
     }
     handleClick = (e)=>{
-        this.props.history.push(e.key)
+        console.log(e)
     }
     mapMenus(menus){
         return menus.map(v=>{

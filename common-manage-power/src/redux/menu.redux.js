@@ -4,118 +4,131 @@
 import axios from 'axios'
 
 const MENU_LIST = 'MENU_LIST'
+const OPEN_MENU = 'OPEN_MENU'
 
 const initState = {
-    menus:[]
+    menus: [],
+    openedMenus: []
 }
 
-export function menu(state=initState,action){
-    switch(action.type){
+export function menu(state = initState, action) {
+    switch (action.type) {
         case MENU_LIST:
-            return {...state,menus:action.payload}
+            return { ...state,
+                menus: action.payload
+            }
+        case OPEN_MENU:
+            state.openedMenus.push(action.payload)
+            return { ...state
+            }
         default:
             return state
     }
 }
 
-function menuList(data){
-    return {type:MENU_LIST,payload:data}
+function menuList(data) {
+    return {
+        type: MENU_LIST,
+        payload: data
+    }
 }
 
-export function getMenuList(){
-    const menus=[
-        {
-            icon:'laptop',
-            text:'工作台',
-            url:'/dashboard'
+
+export function getMenuList() {
+    const menus = [{
+            icon: 'laptop',
+            text: '工作台',
+            url: 'bench'
         },
         {
-            icon:'car',
-            text:'JSON',
-            children:[
+            icon: 'car',
+            text: 'JSON',
+            children: [{
+                text: '编辑器',
+                url: 'jsoneditor'
+            }]
+        },
+        {
+            icon: 'coffee',
+            text: 'Demo',
+            children: [{
+                    text: '表格',
+                    url: 'table'
+                },
                 {
-                    text:'编辑器',
-                    url:'/jsoneditor'
+                    text: '树',
+                    url: 'tree'
+                },
+                {
+                    text: '对话框',
+                    url: 'modal'
                 }
             ]
         },
         {
-            icon:'coffee',
-            text:'Demo',
-            children:[
-                {
-                    text:'表格',
-                    url:'/table'
+            icon: 'rocket',
+            text: '动画',
+            children: [{
+                    text: '官方教程',
+                    url: 'official-animation'
                 },
                 {
-                    text:'树',
-                    url:'/tree'
+                    text: '基础动画',
+                    url: 'base-animation'
                 },
                 {
-                    text:'对话框',
-                    url:'/modal'
+                    text: '动画案例',
+                    url: 'example-animation'
                 }
             ]
         },
         {
-            icon:'rocket',
-            text:'动画',
-            children:[
-                {
-                    text:'官方教程',
-                    url:'/official-animation'
+            icon: 'compass',
+            text: '拖拽',
+            children: [{
+                    text: 'Chess',
+                    url: 'chess'
                 },
                 {
-                    text:'基础动画',
-                    url:'/base-animation'
+                    text: 'Dustbin',
+                    url: 'dustbin'
                 },
                 {
-                    text:'动画案例',
-                    url:'/example-animation'
+                    text: 'DragAround',
+                    url: 'dragaround'
+                },
+                {
+                    text: 'Nesting',
+                    url: 'nesting'
+                },
+                {
+                    text: 'Sortable',
+                    url: 'sortable'
+                },
+                {
+                    text: 'Customize',
+                    url: 'customize'
+                },
+                {
+                    text: 'Other',
+                    url: 'other'
                 }
             ]
         },
         {
-            icon:'compass',
-            text:'拖拽',
-            children:[
-                {
-                    text:'Chess',
-                    url:'/chess'
-                },
-                {
-                    text:'Dustbin',
-                    url:'/dustbin'
-                },
-                {
-                    text:'DragAround',
-                    url:'/dragaround'
-                },
-                {
-                    text:'Nesting',
-                    url:'/nesting'
-                },
-                {
-                    text:'Sortable',
-                    url:'/sortable'
-                },
-                {
-                    text:'Customize',
-                    url:'/customize'
-                },
-                {
-                    text:'Other',
-                    url:'/other'
-                }
-            ]
-        },
-        {
-            icon:'exception',
-            text:'关于',
-            url:'/about'
+            icon: 'exception',
+            text: '关于',
+            url: 'about'
         }
     ]
-    return dispatch =>{
+    return dispatch => {
         dispatch(menuList(menus))
+    }
+}
+
+export function openMenu(menu) {
+    return {
+        type: OPEN_MENU,
+        payload: menu
     }
 }
